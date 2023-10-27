@@ -92,7 +92,7 @@
       </div>
 
       <div class="video-wrapper">
-        <video :src="project.video" autoplay loop muted></video>
+        <video :src="project.video" autoplay loop muted playsinline></video>
         <div class="button-wrapper">
           <a
             href="https://github.com/romainniamor"
@@ -158,7 +158,8 @@ const router = useRouter();
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  project.value = store.getProjectById(projectId);
+  project.value = store.getProjectById(projectId, store.language);
+
   if (!project.value) {
     router.push("/");
   }
@@ -170,20 +171,24 @@ onMounted(() => {
     ease: "power3.out",
   });
 
+  const isMobile = window.innerWidth <= 550;
+
+  const startValue = isMobile ? "top 40%" : "top 60%";
+
   const imageSectionTl = gsap.timeline({
     scrollTrigger: {
       trigger: ".image-section",
-      start: "top 30%",
-      end: "60% center",
+      start: startValue,
+      end: "+=25%",
+      duration: 10,
       scrub: 3,
-      delay: 0.3,
     },
   });
 
   imageSectionTl
-    .to(".overlay-1", { ease: "power3.out", y: 20, x: 40 })
-    .to(".overlay-2", { ease: "power3.out", y: 45, x: 65 })
-    .to(".overlay-3", { ease: "power3.out", y: 0, rotate: -4 });
+    .to(".overlay-1", { ease: "power3.out", y: "-3%", x: "8%", rotate: 1 })
+    .to(".overlay-2", { ease: "power3.out", y: "-1%", x: "12%" })
+    .to(".overlay-3", { ease: "power3.out", y: "-2%", x: "3%", rotate: -3 });
 });
 </script>
 
@@ -199,7 +204,15 @@ link {
 .selected-project {
   width: 100vw;
   height: auto;
-  padding-bottom: 20em;
+  padding-bottom: 20rem;
+  background: var(--secondary);
+}
+
+.selected-project::-webkit-scrollbar {
+  display: none;
+}
+
+nav {
   background: var(--secondary);
 }
 
@@ -224,7 +237,7 @@ link {
 }
 
 .work-title {
-  font-size: clamp(3em, 12vw, 25em);
+  font-size: clamp(3rem, 12vw, 25rem);
   color: var(--secondary);
   transform: translateY(100%);
   font-family: "kionaregular";
@@ -244,13 +257,14 @@ link {
   width: 100%;
   display: flex;
   justify-content: right;
+  margin: 5rem 0;
 }
 
 .subtitle h2 {
-  font-size: clamp(18px, 2vw, 5em);
+  font-size: clamp(1.8rem, 2vw, 5rem);
   width: 70%;
   font-family: "kionaregular";
-  line-height: 1.8em;
+  line-height: 1.5;
   text-align: right;
 }
 
@@ -259,15 +273,16 @@ link {
   display: flex;
   width: 100%;
   justify-content: right;
-  gap: clamp(1.8em, 10vw, 10em);
+  gap: clamp(1.8rem, 10vw, 10rem);
+  margin: 5rem 0;
 }
 
 .skills h3 {
-  font-size: clamp(17px, 2.2vw, 3em);
+  font-size: clamp(1.6rem, 1.8vw, 3rem);
   font-weight: 100;
   text-transform: uppercase;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
   width: min-content;
 }
 
@@ -282,46 +297,49 @@ link {
 }
 
 .skills ul {
-  font-size: clamp(15px, 2vw, 1.9em);
+  font-size: clamp(1.5rem, 1.6vw, 1.9rem);
   list-style: none;
 }
 
 .skills ul li {
-  line-height: 2em;
+  line-height: 1.7;
 }
 
 .image-section {
   width: 100%;
-  padding: 8em;
+  padding: 8rem 8rem 0 8rem;
+  overflow: hidden;
 }
 
 .images-wrapper {
-  overflow: hidden;
   position: relative;
 }
 
 .work-image-bg {
   width: 100%;
+  object-fit: cover;
 }
 
 .work-image-overlay {
-  width: 100%;
+  width: 95%;
   position: absolute;
+
+  box-shadow: 2px 10px 5px -1px rgba(0, 0, 0, 0.3);
 }
 .overlay-1 {
   top: 0%;
   left: 0%;
-  transform: translateY(100%);
+  transform: translateY(120%);
 }
 .overlay-2 {
   top: 0%;
   left: 0;
-  transform: translateY(100%);
+  transform: translateY(120%);
 }
 .overlay-3 {
   top: 0%;
   left: 0%;
-  transform: translateY(100%);
+  transform: translateY(120%);
 }
 
 .description {
@@ -331,7 +349,7 @@ link {
   justify-content: center;
   width: 100%;
 
-  line-height: 40px;
+  line-height: 2;
 
   padding: 5em;
 }
@@ -339,7 +357,7 @@ link {
 .description p {
   margin: 1em 0;
   width: clamp(450px, 40%, 700px);
-  font-size: 20px;
+  font-size: clamp(1.6rem, 1.8rem, 2rem);
 }
 
 .video-wrapper {
@@ -352,14 +370,15 @@ link {
 video {
   box-shadow: 3px 5px 15px 5px rgba(141, 141, 141, 0.5);
   width: 80%;
-  border-radius: 20px;
+  border-radius: 2rem;
   margin: 5em 0;
+  z-index: 1;
 }
 
 .button-wrapper {
-  padding: 25px 45px;
+  padding: 2.5rem 4.5rem;
   background-color: var(--primary);
-  margin: 2em 0;
+  margin: 5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -367,19 +386,19 @@ video {
 
 .button-wrapper a span {
   color: var(--secondary);
-  font-size: 2.3em;
+  font-size: 2.3rem;
   font-weight: lighter;
-  margin-right: 0.3em;
+  margin-right: 0rem;
 }
 
 @media screen and (max-width: 768px) {
   .selected-project {
-    padding-top: 60px;
+    padding-top: 6rem;
   }
 
   .image-section {
     width: 100%;
-    padding: 5em 0em;
+    padding: 5rem 0em 0 0;
   }
   .description p {
     width: 80%;
@@ -396,29 +415,28 @@ video {
   }
   .skills {
     justify-content: center;
-    gap: clamp(2em, 10vw, 10em);
+    gap: clamp(2rem, 10vw, 10rem);
     padding: 0;
   }
 
   .skills ul li {
-    line-height: 1.8em;
+    line-height: 1.5;
   }
 
   .description {
-    padding: 2em;
+    padding: 2rem;
   }
 
   .description p {
     width: 100%;
-    font-size: 17px;
   }
 
   .button-wrapper {
-    padding: 20px 35px;
+    padding: 2rem 3.5rem;
   }
   .button-wrapper a span {
-    font-size: 1.8em;
-    margin-right: 0.2em;
+    font-size: 1.8rem;
+    margin-right: 0.2rem;
   }
 }
 

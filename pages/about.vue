@@ -26,35 +26,27 @@
       </div>
 
       <div class="about-me-content">
-        <h2><i>Hey !</i> I'm Romain. A web application developer.</h2>
+        <h2><i>Hey !</i> {{ about.title }}</h2>
         <div class="about-me-columns">
           <div class="left">
             <p>
-              I like to create. Getting into web development changed a lot of
-              things for me, and since then, I try to push my work to new
-              horizons. Luckily, the horizon is vast.
+              {{ about.text1 }}
             </p>
             <p>
-              What excites me the most about web developement is being able to
-              bring an idea or a need to fruition. Creation is not only visual
-              but involves logic, a pragmatic analysis of needs, and the
-              resources available to do it.
+              {{ about.text2 }}
+            </p>
+            <p>
+              {{ about.text31 }}
+              <a href="https://coder-pour-changer-de-vie.com/" target="_blank"
+                ><i>Nicolas Georgemel </i></a
+              >
+              {{ about.text32 }}
             </p>
           </div>
           <div class="right">
             <img src="~/assets/images/img.png" alt="picture romain navoret" />
           </div>
         </div>
-        <p>
-          Since 2022, I have been dedicating 24/7 to developing my skills in
-          this field. Mentored by
-          <a href="https://coder-pour-changer-de-vie.com/" target="_blank"
-            ><i>Nicolas Georgemel</i></a
-          >, backed by 20 years of technic and manage projects experience, I
-          have developed my skills to have a comprehensive view of the developer
-          profession, project implementation, and allow me to stand on my own
-          two feet.
-        </p>
 
         <div class="skills">
           <h3>skills</h3>
@@ -105,20 +97,20 @@
           </div>
         </div>
         <p>
-          I usually work with Vue.js for the front and Django for the back. And
-          most important: I like to learn. This curiosity drives me to explore
-          in-depth my current skills and the next one's, gradually broadening my
-          horizon.
+          {{ about.text4 }}
         </p>
-
-        <p></p>
       </div>
     </div>
   </div>
 </template>
 <script setup>
 import { gsap } from "gsap";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
+import { useDataStore } from "~/store/dataStore";
+
+const store = useDataStore();
+
+const about = computed(() => store.texts[store.language].about);
 
 onMounted(() => {
   gsap.set(".wrapper", { height: "100%" });
@@ -148,6 +140,14 @@ onMounted(() => {
   overflow: scroll;
 }
 
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+nav {
+  background: var(--secondary);
+}
+
 a,
 a span,
 link {
@@ -166,9 +166,9 @@ link {
 
 .content {
   display: flex;
-  width: min-content;
+  width: clamp(200px, 90%, 1450px);
   flex-direction: column;
-  padding: 10% 0 10% 10%;
+  padding: 10% 0 10% 15%;
 }
 
 .about-me-title-wrapper {
@@ -192,27 +192,28 @@ link {
 .about-me-content {
   display: flex;
   flex-direction: column;
-  gap: 3em;
+  gap: 3rem;
   width: 90%;
   padding-bottom: 4vw;
   z-index: 1;
 }
 
 .about-me-content h2 {
-  font-size: clamp(4em, 3vw, 6em);
+  font-size: clamp(4rem, 3vw, 6rem);
   font-weight: lighter;
   z-index: 1;
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
 }
 
 .about-me-columns {
   display: flex;
+  gap: 5rem;
 }
 
 .about-me-columns .left {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 2rem;
   justify-content: center;
 }
 .about-me-columns .right {
@@ -222,14 +223,18 @@ link {
 }
 
 img {
-  width: clamp(50px, 100%, 350px);
+  width: clamp(7rem, 100%, 40rem);
   object-fit: cover;
+}
+
+.skills {
+  margin-top: 5rem;
 }
 
 .about-me-content p,
 .skills p {
-  font-size: 1.9em;
-  line-height: 30px;
+  font-size: clamp(1.6rem, 1.8rem, 2.2rem);
+  line-height: 2;
 }
 
 .link-index {
@@ -238,7 +243,7 @@ img {
 }
 
 .skills h3 {
-  font-size: 2.3em;
+  font-size: clamp(1.9rem, 2.7rem, 3.2rem);
   font-weight: 100;
   text-transform: uppercase;
   position: relative;
@@ -249,7 +254,7 @@ img {
   content: "";
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 0.2rem;
   background: var(--primary);
   left: 0;
   bottom: 0;
@@ -257,13 +262,13 @@ img {
 
 .skills .main-skills {
   display: flex;
-  gap: 3em;
+  gap: 3rem;
   justify-content: center;
-  margin: 6em 0;
+  margin: 6rem 0;
 }
 .skills .main-skills i {
   color: var(--primary);
-  font-size: 8em;
+  font-size: 8rem;
 }
 
 .secondary-skills {
@@ -272,16 +277,16 @@ img {
 }
 
 .skills h4 {
-  font-size: 1.9em;
-  margin-top: 2em;
+  font-size: 1.9rem;
+  margin-top: 2rem;
   font-weight: 500;
 }
 
 .button-wrapper {
   width: min-content;
-  padding: 15px 25px;
+  padding: 1.5rem 2.5rem;
   background-color: var(--primary);
-  margin: 5em 0;
+  margin: 5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -289,15 +294,21 @@ img {
 
 .button-wrapper a span {
   color: var(--secondary);
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: lighter;
-  margin-right: 0.3em;
+  margin-right: 0.3rem;
 }
 
 @media screen and (max-width: 1025px) {
+  .content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 10% 0 10% 15%;
+  }
   .about-me-columns {
     flex-direction: column;
-    gap: 3em;
+    gap: 3rem;
   }
 }
 
@@ -321,33 +332,21 @@ img {
   }
 
   .content {
-    padding: 10em 2em;
+    padding: 10rem 2rem;
   }
 
   .content h1 {
-    font-size: clamp(4em, 19vw, 15em);
-    padding: 30px 0;
+    font-size: clamp(4rem, 19vw, 15rem);
+    padding: 3rem 0;
   }
 
   .about-me-content h2 {
     font-size: 5.9vw;
-    font-size: clamp(2.3em, 5.9vw, 5em);
-  }
-
-  .about-me-content p,
-  .skills p {
-    font-size: 1.8em;
+    font-size: clamp(2.3rem, 5.9vw, 5rem);
   }
 }
 
 @media screen and (max-width: 530px) {
-  .about-me-content p,
-  .skills p {
-    font-size: 1.7em;
-    line-height: 25px;
-    width: 100%;
-  }
-
   .content {
     width: 100%;
   }
@@ -357,22 +356,18 @@ img {
   }
 
   .skills .main-skills i {
-    font-size: 6em;
-    gap: 2em;
+    font-size: 6rem;
+    gap: 2rem;
   }
 }
 
 @media screen and (max-width: 430px) {
   .skills .main-skills i {
-    font-size: 5.5em;
+    font-size: 5.5rem;
   }
 
   .about-me-content h2 {
     width: 100%;
-  }
-
-  .skills h3 {
-    font-size: 1.9em;
   }
 }
 </style>

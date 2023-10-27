@@ -154,7 +154,7 @@ link {
   flex-direction: column;
   position: relative;
   justify-content: flex-end;
-  padding: 100px;
+  padding: 10rem;
   flex-grow: 0;
 }
 
@@ -163,16 +163,16 @@ link {
 }
 
 .content h1 {
-  font-size: clamp(50px, 14vw, 22em);
+  font-size: clamp(5rem, 14vw, 22rem);
   line-height: 1;
   font-family: "kionaregular";
 }
 .content h2 {
-  font-size: clamp(37px, 3.9vw, 6.3em);
+  font-size: clamp(3.7rem, 3.9vw, 6.3rem);
   line-height: 1;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.1rem;
   background: var(--primary);
 }
 
@@ -195,20 +195,20 @@ link {
 }
 
 .form-wrapper .contact-end {
-  line-height: 1.5;
-  font-size: 1.8em;
+  line-height: 2;
+  font-size: clamp(1.6rem, 1.9rem, 2.2rem);
 }
 
 .contact-end a {
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 0.5rem;
 }
 
 .button-wrapper {
-  padding: 10px 15px;
+  padding: 1rem 1.5rem;
   background-color: var(--secondary);
-  margin: 2em 0;
+  margin: 2rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -216,9 +216,9 @@ link {
 
 .button-wrapper a span {
   color: var(--primary);
-  font-size: 1.9em;
+  font-size: 1.9rem;
   font-weight: lighter;
-  margin-right: 0.3em;
+  margin-right: 0.3rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -236,25 +236,18 @@ link {
 }
 @media screen and (max-width: 460px) {
   .button-wrapper a span {
-    font-size: 1.8em;
+    font-size: 1.8rem;
   }
   .form-wrapper .contact-end {
     line-height: 1.5;
-    font-size: 16px;
-  }
-}
-
-@media only screen and (orientation: landscape) {
-  .content {
-    overflow-y: scroll;
+    font-size: 1.6rem;
   }
 }
 
 @media screen and (max-width: 900px) and (orientation: landscape) {
   .container {
-    overflow-y: scroll;
     height: auto;
-    padding: 8em 0;
+    padding: 4rem 0;
   }
 }
 </style>

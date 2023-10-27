@@ -24,13 +24,10 @@
       <div class="left">
         <h1>portfolio</h1>
         <p>
-          These projects serve various purposes, whether for practicing skills,
-          implementing technologies, exploring libraries and frameworks, or
-          simply for fun.
+          {{ works.text1 }}
         </p>
         <p>
-          But for each project I pay particular attention to the interaction,
-          animations and performance in order to give to users pleasant ux.
+          {{ works.text2 }}
         </p>
       </div>
       <div class="right">
@@ -53,11 +50,14 @@
 
 <script setup>
 import { gsap } from "gsap";
-import { onMounted } from "vue";
+import { onMounted, computed } from "vue";
 import { useDataStore } from "~/store/dataStore";
 
 const store = useDataStore();
-const projects = store.projects;
+
+const works = computed(() => store.texts[store.language].works);
+const projects = computed(() => store.texts[store.language].projects);
+console.log("projects", projects);
 
 onMounted(() => {
   gsap.set(".wrapper", { height: "100%" });
@@ -109,6 +109,10 @@ link {
   color: var(--secondary);
 }
 
+nav {
+  background: var(--primary);
+}
+
 .wrapper {
   position: absolute;
   height: 100%;
@@ -122,7 +126,7 @@ link {
 .content {
   display: flex;
   gap: 4vw;
-  padding-left: 100px;
+  padding-left: 10rem;
 }
 .content .left {
   height: 100%;
@@ -130,21 +134,21 @@ link {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 20px;
+  gap: 2rem;
   padding-bottom: 4vw;
 }
 
 .left h1 {
-  font-size: 2.5em;
-  transform: translateY(2em);
+  font-size: 2.5rem;
+  transform: translateY(2rem);
   text-transform: uppercase;
   font-family: "kionaregular";
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2rem;
 }
 .left p {
-  font-size: 1.8em;
+  font-size: clamp(1.6rem, 1.8rem, 1.9rem);
   background: var(--primary);
-  line-height: 30px;
+  line-height: 2;
   z-index: 1;
 }
 
@@ -152,29 +156,34 @@ link {
   flex: 1;
   overflow-y: scroll;
 }
+
+.content .right::-webkit-scrollbar {
+  display: none;
+}
+
 .projects-list {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 2rem;
   justify-content: start;
   position: relative;
   text-transform: uppercase;
   font-weight: lighter;
-  filter: blur(10px);
-  transform: translateY(50px);
+  filter: blur(1rem);
+  transform: translateY(5rem);
   padding: 2vw;
   opacity: 0;
 }
 
 .projects-list .project:hover h2 {
-  transform: skewX(-10deg) translateX(20px);
+  transform: skewX(-10deg) translateX(2rem);
 }
 .projects-list .project:hover p {
-  transform: translateX(-10px);
+  transform: translateX(-1rem);
 }
 
 .projects-list h2 {
-  font-size: clamp(20px, 7vw, 15em);
+  font-size: clamp(2rem, 7vw, 15rem);
   transition: all 0.3s ease;
 
   font-family: "kionaregular";
@@ -184,8 +193,8 @@ link {
 
 .projects-list .info {
   font-family: Montserrat, sans-serif;
-  font-size: clamp(13px, 1vw, 4em);
-  padding-left: 20px;
+  font-size: clamp(1.3rem, 1vw, 4rem);
+  padding-left: 2rem;
   position: relative;
   transition: all 1s ease-in-out;
   display: inline-flex;
@@ -203,8 +212,12 @@ link {
   .content {
     flex-direction: column;
     width: 100%;
-    padding: 100px 0 0 100px;
+    padding: 10rem 0 0 10rem;
     gap: 3vw;
+  }
+
+  .container::-webkit-scrollbar {
+    display: none;
   }
 
   .content .right {
@@ -214,7 +227,7 @@ link {
   }
 
   .projects-list h2 {
-    font-size: clamp(3em, 12vw, 17em);
+    font-size: clamp(3rem, 12vw, 17rem);
   }
 }
 
@@ -228,15 +241,11 @@ link {
     width: 100%;
   }
   .content {
-    padding: 100px 3em;
+    padding: 100px 3rem;
   }
 
   .content .left {
     width: 100%;
-  }
-
-  .left p {
-    font-size: 1.7em;
   }
 }
 </style>

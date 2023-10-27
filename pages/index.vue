@@ -55,7 +55,20 @@
           </div>
         </a>
       </div>
-
+      <div class="langages">
+        <button
+          @click="switchLanguage('french')"
+          :class="{ active: activeLang === 'french' }"
+        >
+          FR
+        </button>
+        <button
+          @click="switchLanguage('english')"
+          :class="{ active: activeLang === 'english' }"
+        >
+          EN
+        </button>
+      </div>
       <p>/2023&copy;</p>
     </nav>
     <div class="content">
@@ -64,10 +77,7 @@
         <div class="header-mask"></div>
 
         <div class="content-mask">
-          <p>
-            Web full stack developer Vue.js & Django. Currently available,
-            looking for oportunity.
-          </p>
+          <p>{{ title }}</p>
         </div>
       </div>
       <div class="right">
@@ -84,6 +94,20 @@
 <script setup>
 import { gsap } from "gsap";
 import { onMounted } from "vue";
+import { ref, computed } from "vue";
+import { useDataStore } from "~/store/dataStore";
+
+const store = useDataStore();
+
+const activeLang = ref(store.language);
+
+const title = computed(() => store.texts[store.language].title);
+
+//modif de l etat du bouton et appel setLanguage pour maj du localStorage
+function switchLanguage(choice) {
+  activeLang.value = choice;
+  store.setLanguage(choice);
+}
 
 onMounted(() => {
   const tl = gsap.timeline();
@@ -116,6 +140,14 @@ onMounted(() => {
       "-=.1"
     );
 });
+
+// watcher pour maj de l'état du bouton
+watch(
+  () => store.language,
+  (newLanguage) => {
+    activeLang.value = newLanguage;
+  }
+);
 </script>
 
 <style scoped>
@@ -145,7 +177,7 @@ link {
 .content {
   display: flex;
   gap: 4vw;
-  padding: 100px;
+  padding: 10rem;
   width: 100%;
   height: 100%;
 }
@@ -157,20 +189,21 @@ link {
 
 .content-mask {
   z-index: 3;
-  padding: 3em 0;
+  padding: 3rem 0;
 }
 
 .left h1 {
-  font-size: 2.5em;
+  font-size: clamp(2.5rem, 2.7rem, 3.2rem);
   transform: translateY(7.5em);
   text-transform: uppercase;
   font-family: "kionaregular";
+  font-weight: 800;
 }
 .left p {
-  font-size: 1.8em;
+  font-size: clamp(1.6rem, 1.8rem, 2rem);
   background: var(--secondary);
-  line-height: 25px;
-  padding: 0 1vw 2em 0;
+  line-height: 2;
+  padding: 0 1vw 2rem 0;
   z-index: 1;
 }
 
@@ -183,12 +216,12 @@ link {
 }
 
 .index-list {
-  transform: translateY(50px);
-  filter: blur(10px);
+  transform: translateY(5rem);
+  filter: blur(1rem);
 }
 
 .index-list h2 {
-  margin-bottom: -20px; /* Ajustez cette valeur selon vos besoins */
+  margin-bottom: -2rem; /* Ajustez cette valeur selon vos besoins */
   text-transform: uppercase;
   transition: all 0.3s ease;
   font-weight: 600;
@@ -203,8 +236,8 @@ link {
   position: absolute;
   right: 0;
   bottom: 0;
-  margin: 3px;
-  font-size: 1.5em;
+  margin: 0.3rem;
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 1025px) {
@@ -213,7 +246,7 @@ link {
 
     justify-content: center;
     gap: 0;
-    padding: 5em 5em 5em 100px;
+    padding: 5rem 5rem 5rem 10rem;
   }
 
   .content-mask {
@@ -232,20 +265,14 @@ link {
 
 @media screen and (max-width: 768px) {
   .content {
-    padding: 5em;
+    padding: 3rem;
   }
   .left h1 {
-    font-size: 2.2em;
     transform: translateY(7em);
   }
-  .left p {
-    font-size: 1.6em;
 
-    line-height: 22px;
-  }
   .content .right {
     justify-content: flex-start;
-
     flex: 1;
   }
 
@@ -259,7 +286,7 @@ link {
   .container {
     overflow-y: scroll;
     height: auto;
-    padding: 15em 0 8em 0;
+    padding: 15rem 0 8rem 0;
   }
 }
 </style>

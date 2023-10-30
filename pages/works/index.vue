@@ -236,7 +236,6 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-
     height: 60px;
     width: 100%;
   }

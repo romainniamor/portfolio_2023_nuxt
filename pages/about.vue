@@ -44,7 +44,7 @@
             </p>
           </div>
           <div class="right">
-            <img src="~/assets/images/img.png" alt="picture romain navoret" />
+            <img src="~/assets/images/img.jpeg" alt="picture romain navoret" />
           </div>
         </div>
 
@@ -60,6 +60,8 @@
           <div class="secondary-skills">
             <h4>FRAMEWORKS CSS</h4>
             <p>SCSS / Bulma / Tailwind / Bootstrap</p>
+            <h4>UNIT TESTING</h4>
+            <p>Jest / Unittest</p>
             <h4>KNOWLEDGES</h4>
             <p>POO / Design Patterns / Virtual Box / Agile</p>
             <h4>DEVOPS</h4>
@@ -284,6 +286,7 @@ img {
 
 .button-wrapper {
   width: min-content;
+  max-width: 70%;
   padding: 1.8rem 6rem;
   background-color: var(--primary);
   margin: 5rem 0;

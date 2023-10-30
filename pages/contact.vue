@@ -67,16 +67,19 @@
           </a>
         </div>
 
-        <p class="contact-end">
-          Interested in my profile, my work or else?<br />
-          Leave me a message, i'll write you back asap.<br />
+        <div class="contact-end">
+          <div v-for="content in contact.content">
+            <p>{{ content }}</p>
+          </div>
+
           <a
             href="https://www.linkedin.com/in/romain-navoret-559480274/"
             target="_blank"
           >
-            Or join me on <i class="devicon-linkedin-plain"></i
+            <span>{{ contact.link }}</span>
+            <i class="devicon-linkedin-plain"></i
           ></a>
-        </p>
+        </div>
       </div>
     </div>
   </div>
@@ -86,9 +89,13 @@
 import { gsap } from "gsap";
 import SplitType from "split-type";
 import { onMounted, ref, computed } from "vue";
+import { useDataStore } from "~/store/dataStore";
 
 const name = ref("romainnavoret");
 const domain = ref("gmail.com");
+
+const store = useDataStore();
+const contact = computed(() => store.texts[store.language].contact);
 
 const eMail = computed(() => `${name.value}@${domain.value}`);
 

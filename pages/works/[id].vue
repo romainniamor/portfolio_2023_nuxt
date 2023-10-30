@@ -361,6 +361,7 @@ video {
   border-radius: 0.5rem;
   margin: 2em;
   z-index: 1;
+  box-shadow: 3px 5px 15px 5px rgba(141, 141, 141, 0.5);
 }
 
 .button-wrapper {
@@ -370,6 +371,7 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 70%;
 
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
@@ -435,6 +437,10 @@ video {
   .button-wrapper a span {
     font-size: 1.8rem;
     margin-right: 0.2rem;
+  }
+  .overlay-2,
+  .overlay-3 {
+    border: 0.3rem solid #ffffff;
   }
 }
 

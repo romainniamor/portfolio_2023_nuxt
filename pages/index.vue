@@ -158,6 +158,10 @@ watch(
   color: var(--primary);
 }
 
+nav {
+  background: var(--secondary);
+}
+
 .wrapper {
   position: absolute;
   height: 100%;

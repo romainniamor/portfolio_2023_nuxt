@@ -16,18 +16,25 @@ export const useDataStore = defineStore({
           text2:
             "Ce qui m'enthousiasme le plus dans le développement web, c'est la possibilité de concrétiser une idée, un besoin. La création ne se limite pas uniquement à l'aspect visuel, elle implique également la logique, une analyse pragmatique des besoins, ainsi que des ressources disponibles pour les réaliser.",
           text31:
-            "Depuis 2022, je consacre tout mon temps au développement web. Accompagné par, \u00A0",
+            "Depuis 2022, je consacre tout mon temps au développement web. Accompagné par",
           text32:
-            "\u00A0 fort de 20 ans d'expérience technique et de gestion de projets, j'ai développé mes compétences pour avoir une vue globale du métier et de la mise en œuvre de projets.",
+            ",\u00A0fort de 20 ans d'expérience technique et de gestion de projets, j'ai développé mes compétences pour avoir une vue globale du métier et de la mise en œuvre de projets.",
 
           text4:
             "Je travaille généralement avec Vue.js pour la partie front-end et Django pour la partie back-end. Et plus important: j'aime apprendre. Cette curiosité me pousse à explorer en profondeur mes compétences actuelles et les suivantes, élargissant progressivement mon horizon.",
         },
         works: {
           text1:
-            "Ces projets m'ont permis de mettre en application des technologies, des compétences, d'explorer des librairies et des frameworks, de créer des outils utilent personnellement ou tout simplement pour le plaisir.",
+            "Ces projets m'ont permis de mettre en application des technologies, des compétences, d'explorer des librairies et des frameworks, de créer des outils utiles personnellement ou tout simplement pour le plaisir.",
           text2:
             "Pour chaque projet, je porte une attention particulière à l'interaction, aux animations et aux performances afin d'offrir une expérience utilisateur agréable.",
+        },
+        contact: {
+          content: [
+            "Intéressé par mon profil, mon travail ou autre?",
+            "Laissez-moi un message, je vous répondrai dès que possible.",
+          ],
+          link: "Ou contactez moi sur \u00A0",
         },
         projects: [
           {
@@ -57,20 +64,19 @@ export const useDataStore = defineStore({
               server: ["SQLite"],
             },
             description: [
-              "Ce réseau social a été créé avec Vue.js et Django. Inspiré de réseaux sociaux bien connus (comme Facebook, LinkedIn, Instagram...).",
-              "Il permet aux utilisateurs de créer leur propre espace, de publier des messages texte ou des images, de participer à des discussions via des commentaires ou une messagerie privée.",
+              "Ce réseau social a été créé avec Vue.js et Django. Inspiré de réseaux sociaux bien connus (tel que Facebook, LinkedIn, Instagram...).",
+              "Il permet aux utilisateurs de créer leur propre espace, de publier des messages texte ou des images, de participer à des discussions via les commentaires ou par messages privés.",
               "En plus des fonctionnalités de recherche classiques par nom, l'application suggère des relations pour élargir son réseau.",
               "De même, pour les sujets de discussion, il y a une section de tendances quotidiennes qui identifie les hashtags (#) et offre un accès aux sujets populaires.",
               "Ce projet sert de base solide et réutilisable pour d'autres projets.",
               "Côté serveur, le système d'authentification a été mis en place en utilisant JSON Web Tokens. Il s'agit de l'une des quatre applications Django créées (compte, chat, publication...) pour ce projet, dans le but d'assurer la modularité, la réutilisation du code, la maintenabilité et la lisibilité du code.",
               "Côté client, l'utilisation de plusieurs composants garantit une interface utilisateur cohérente et une expérience utilisateur fluide.",
             ],
-            image_bg: "/network/img-bg.png",
-            image_1: "/network/img-1.png",
-            image_2: "/network/img-2.png",
-            image_3: "/network/img-3.png",
+            image_bg: "/network/img-bg.jpg",
+            image_1: "/network/img-1.jpg",
+            image_2: "/network/img-2.jpg",
+            image_3: "/network/img-3.jpg",
             video: "/network/video.mp4",
-            link: "",
           },
           {
             id: 2,
@@ -92,15 +98,14 @@ export const useDataStore = defineStore({
             },
             description: [
               "35 % des Français pratiquent le jardinage, j'ai donc souhaité créer un outil pour ces passionnés, amoureux du jardinage. Le rôle de cette application est à la fois informatif mais également de faciliter la gestion de son jardin.",
-              "En effet, cette application permet d'adapter le jardinage en fonction du climat. Selon la localisation, en l'occurence le département, les dates relatives à differents évenements (plantation, récolte) diffères.",
+              "En effet, cette application permet d'adapter le jardinage en fonction du climat. Selon la localisation, en l'occurence le département, les dates relatives à differents évenements (plantation, récolte) diffèrent.",
               "Ce projet repose principalement sur le framework Django, bénéficiant ainsi de son interface d'administration et de sa sécurité. Cela dit des ajustements furent nécessaires pour réaliser des requêtes vers une vue Django sans avoir besoin de recharger la page (requête asynchrone) et améliorer l'expérience utilisateur.",
             ],
-            image_bg: "/my_garden/img-bg.png",
-            image_1: "/my_garden/img-1.png",
-            image_2: "/my_garden/img-2.png",
-            image_3: "/my_garden/img-3.png",
+            image_bg: "/my_garden/img-bg.jpg",
+            image_1: "/my_garden/img-1.jpg",
+            image_2: "/my_garden/img-2.jpg",
+            image_3: "/my_garden/img-3.jpg",
             video: "/my_garden/video.mp4",
-            link: "",
           },
           {
             id: 3,
@@ -126,12 +131,11 @@ export const useDataStore = defineStore({
               "Techniquement, l'application repose sur un backend Django REST pour la création d'API avec une base de données SQLite. Le frontend quant à lui est développé en Vue.js et son framework Nuxt. L'ensemble est stylisé avec Tailwind CSS.",
             ],
 
-            image_bg: "/facture/img-bg.png",
-            image_1: "/facture/img-1.png",
-            image_2: "/facture/img-2.png",
-            image_3: "/facture/img-3.png",
+            image_bg: "/facture/img-bg.jpg",
+            image_1: "/facture/img-1.jpg",
+            image_2: "/facture/img-2.jpg",
+            image_3: "/facture/img-3.jpg",
             video: "/facture/video.mp4",
-            link: "",
           },
           {
             id: 4,
@@ -156,12 +160,11 @@ export const useDataStore = defineStore({
               "Celle-ci a été développée avec le framework Django. Elle a été soigneusement conçue pour tirer pleinement parti de tous les avantages de ce framework.",
               "Il est possible de créer un compte, créer, lire, éditer et supprimer des tâches dans une base de données PostgreSQL de manière rapide et intuitive pour l'utilisateur. Ces données peuvent être filtrées par date de création, catégorie et priorité.",
             ],
-            image_bg: "/todo/img-bg.png",
-            image_1: "/todo/img-1.png",
-            image_2: "/todo/img-2.png",
-            image_3: "/todo/img-3.png",
+            image_bg: "/todo/img-bg.jpg",
+            image_1: "/todo/img-1.jpg",
+            image_2: "/todo/img-2.jpg",
+            image_3: "/todo/img-3.jpg",
             video: "/todo/video.mp4",
-            link: "",
           },
           {
             id: 5,
@@ -181,12 +184,11 @@ export const useDataStore = defineStore({
               "Pour réaliser cette page, j'ai principalement utilisé un support papier pour le wireframing et GSAP pour la création d'animations et les transitions.",
             ],
 
-            image_bg: "/artwork/img-bg.png",
-            image_1: "/artwork/img-1.png",
-            image_2: "/artwork/img-2.png",
-            image_3: "/artwork/img-3.png",
+            image_bg: "/artwork/img-bg.jpg",
+            image_1: "/artwork/img-1.jpg",
+            image_2: "/artwork/img-2.jpg",
+            image_3: "/artwork/img-3.jpg",
             video: "/artwork/video.mp4",
-            link: "",
           },
           {
             id: 6,
@@ -213,12 +215,11 @@ export const useDataStore = defineStore({
               "Enfin, la bibliothèque de composants Vuetify a été utilisée pour la mise en page, les formulaires, les cartes, etc...",
             ],
 
-            image_bg: "/sfc/img-bg.png",
-            image_1: "/sfc/img-1.png",
-            image_2: "/sfc/img-2.png",
-            image_3: "/sfc/img-3.png",
+            image_bg: "/sfc/img-bg.jpg",
+            image_1: "/sfc/img-1.jpg",
+            image_2: "/sfc/img-2.jpg",
+            image_3: "/sfc/img-3.jpg",
             video: "/sfc/video.mp4",
-            link: "",
           },
 
           {
@@ -237,12 +238,11 @@ export const useDataStore = defineStore({
               "Quelques icônes, des mouvements, des projections, des explosions, un peu d'aléatoire, des interactions et la magie opère : le désir de continuer.",
             ],
 
-            image_bg: "/shooter/img-bg.png",
-            image_1: "/shooter/img-1.png",
-            image_2: "/shooter/img-2.png",
-            image_3: "/shooter/img-3.png",
+            image_bg: "/shooter/img-bg.jpg",
+            image_1: "/shooter/img-1.jpg",
+            image_2: "/shooter/img-2.jpg",
+            image_3: "/shooter/img-3.jpg",
             video: "/shooter/video.mp4",
-            link: "",
           },
         ],
       },
@@ -268,6 +268,13 @@ export const useDataStore = defineStore({
           text2:
             "But for each project I pay particular attention to the interaction, animations and performance in order to give to users pleasant ux.",
         },
+        contact: {
+          content: [
+            "Interested in my profile, my work or else?",
+            "Leave me a message, i'll write you back asap.",
+          ],
+          link: "Or join me on\u00A0",
+        },
         projects: [
           {
             id: 1,
@@ -278,7 +285,6 @@ export const useDataStore = defineStore({
               "vue.js",
               "django rest",
               "jwt",
-              "jest",
               "sqlite",
             ],
             subtitle:
@@ -304,10 +310,10 @@ export const useDataStore = defineStore({
               "Backend, the authentication system was implemented using JSON Web Tokens. Is one of fourth Django applications created (account, chat, post...) for this project with the goals of modularity, code reusability, maintainability, and code readability.",
               "Frontend, the use of multiple components ensures a consistent user interface and a smooth user experience.",
             ],
-            image_bg: "/network/img-bg.png",
-            image_1: "/network/img-1.png",
-            image_2: "/network/img-2.png",
-            image_3: "/network/img-3.png",
+            image_bg: "/network/img-bg.jpg",
+            image_1: "/network/img-1.jpg",
+            image_2: "/network/img-2.jpg",
+            image_3: "/network/img-3.jpg",
             video: "/network/video.mp4",
           },
           {
@@ -333,10 +339,10 @@ export const useDataStore = defineStore({
               "This application allows for adapting gardening according to the climate. Depending on the location, the department, the planting, or harvesting dates are different.",
               "This project primarily relies on the Django framework, thereby benefiting from its administration interface and its security but obliging me to make adjustments to perform requests to a Django view without needing to reload the page (asynchronous request) and improve the user experience.",
             ],
-            image_bg: "/my_garden/img-bg.png",
-            image_1: "/my_garden/img-1.png",
-            image_2: "/my_garden/img-2.png",
-            image_3: "/my_garden/img-3.png",
+            image_bg: "/my_garden/img-bg.jpg",
+            image_1: "/my_garden/img-1.jpg",
+            image_2: "/my_garden/img-2.jpg",
+            image_3: "/my_garden/img-3.jpg",
             video: "/my_garden/video.mp4",
           },
           {
@@ -363,10 +369,10 @@ export const useDataStore = defineStore({
               "Technically, the application is built on a Django REST backend for creating APIs with an SQLite database. The frontend is in Vue.js, by extension, Nuxt and Tailwind CSS framework.",
             ],
 
-            image_bg: "/facture/img-bg.png",
-            image_1: "/facture/img-1.png",
-            image_2: "/facture/img-2.png",
-            image_3: "/facture/img-3.png",
+            image_bg: "/facture/img-bg.jpg",
+            image_1: "/facture/img-1.jpg",
+            image_2: "/facture/img-2.jpg",
+            image_3: "/facture/img-3.jpg",
             video: "/facture/video.mp4",
           },
           {
@@ -392,10 +398,10 @@ export const useDataStore = defineStore({
               "This one was developed with the Django framework. It was thought out in advance to take full advantage of all the benefits of this framework. ",
               "It is possible to create an account, create, read, edit, and delete tasks in a PostgreSQL database in a way that is quick and intuitive for the user. This data can be filtered by creation date, category, and priority",
             ],
-            image_bg: "/todo/img-bg.png",
-            image_1: "/todo/img-1.png",
-            image_2: "/todo/img-2.png",
-            image_3: "/todo/img-3.png",
+            image_bg: "/todo/img-bg.jpg",
+            image_1: "/todo/img-1.jpg",
+            image_2: "/todo/img-2.jpg",
+            image_3: "/todo/img-3.jpg",
             video: "/todo/video.mp4",
           },
           {
@@ -416,10 +422,10 @@ export const useDataStore = defineStore({
               "To do this, I mainly used paper support for wireframing and GSAP for the creation of animations and transitions.",
             ],
 
-            image_bg: "/artwork/img-bg.png",
-            image_1: "/artwork/img-1.png",
-            image_2: "/artwork/img-2.png",
-            image_3: "/artwork/img-3.png",
+            image_bg: "/artwork/img-bg.jpg",
+            image_1: "/artwork/img-1.jpg",
+            image_2: "/artwork/img-2.jpg",
+            image_3: "/artwork/img-3.jpg",
             video: "/artwork/video.mp4",
           },
           {
@@ -448,10 +454,10 @@ export const useDataStore = defineStore({
               "At last, Vuetify component library was used for the wireframe, forms, cards etc...",
             ],
 
-            image_bg: "/sfc/img-bg.png",
-            image_1: "/sfc/img-1.png",
-            image_2: "/sfc/img-2.png",
-            image_3: "/sfc/img-3.png",
+            image_bg: "/sfc/img-bg.jpg",
+            image_1: "/sfc/img-1.jpg",
+            image_2: "/sfc/img-2.jpg",
+            image_3: "/sfc/img-3.jpg",
             video: "/sfc/video.mp4",
           },
 
@@ -472,10 +478,10 @@ export const useDataStore = defineStore({
               "A few icons, some movement, projections, explosions, randomness, interactions and magic happens: the desire to continue.",
             ],
 
-            image_bg: "/shooter/img-bg.png",
-            image_1: "/shooter/img-1.png",
-            image_2: "/shooter/img-2.png",
-            image_3: "/shooter/img-3.png",
+            image_bg: "/shooter/img-bg.jpg",
+            image_1: "/shooter/img-1.jpg",
+            image_2: "/shooter/img-2.jpg",
+            image_3: "/shooter/img-3.jpg",
             video: "/shooter/video.mp4",
           },
         ],

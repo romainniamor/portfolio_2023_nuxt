@@ -35,6 +35,12 @@ body {
   font-size: 10px;
   font-family: "neue_montrealregular", sans-serif;
   overflow-x: hidden;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a,
@@ -42,10 +48,6 @@ a span,
 link {
   outline: none;
   text-decoration: none;
-}
-
-::-webkit-scrollbar {
-  display: none;
 }
 
 .container {
@@ -61,8 +63,8 @@ nav {
   height: 100vh;
   top: 0;
   left: 0;
-  font-size: 1.6em;
-  width: 60px;
+  font-size: 1.6rem;
+  width: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -75,13 +77,30 @@ nav {
 nav p {
   display: flex;
   transform: rotate(-90deg);
-  gap: 1.3em;
-  margin: 8em 0em 2em 0;
+  gap: 1.3rem;
+  margin: 8rem 0em 2rem 0;
 }
 
-/* .content {
-  flex-grow: 1;
-} */
+nav .langages {
+  display: flex;
+  gap: 1.3rem;
+  transform: rotate(-90deg);
+  margin: 2rem 0em 4rem 0;
+  position: relative;
+}
+
+nav button {
+  border: none;
+  cursor: pointer;
+  font-family: "kionaregular", sans-serif;
+  background: transparent;
+  position: relative;
+  text-decoration: line-through;
+}
+
+nav .active {
+  text-decoration: none;
+}
 
 /* item transformation */
 
@@ -98,7 +117,7 @@ nav p {
 }
 
 .menu-item span {
-  margin-right: 0.2em;
+  margin-right: 0.2rem;
 }
 
 .menu-item:hover > div:nth-child(1) span {
@@ -135,7 +154,7 @@ nav p {
   }
 
   nav {
-    height: 60px;
+    height: 6rem;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -143,13 +162,26 @@ nav p {
     align-items: center;
   }
 
+  nav .langages {
+    transform: rotate(0deg);
+    transform-origin: bottom right;
+    margin: 0 1rem;
+  }
+
   .list-items,
   nav p {
     display: flex;
     transform: rotate(0deg);
-    gap: 1.3em;
+    gap: 1.3rem;
     margin: 0;
-    margin: 0em 10px;
-    font-size: 14px;
+    margin: 0 1rem;
+    font-size: 1.4rem;
+  }
+
+  nav p {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0.3rem 1rem;
   }
 }

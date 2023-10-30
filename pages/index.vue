@@ -237,13 +237,13 @@ link {
   right: 0;
   bottom: 0;
   margin: 0.3rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-family: "kionaregular", sans-serif;
 }
 
 @media screen and (max-width: 1025px) {
   .content {
     flex-direction: column;
-
     justify-content: center;
     gap: 0;
     padding: 5rem 5rem 5rem 10rem;

@@ -18,8 +18,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
-    "@studio-freight/lenis": "^1.0.23",
-    "gsap": "file:gsap-bonus.tgz",
+    "gsap": "^3.12.2",
     "pinia": "^2.1.6",
     "split-type": "^0.3.3"
   }

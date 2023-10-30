@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ["~/assets/css/main.css"],
+
   app: {
     head: {
       title: "romain-navoret-portfolio",

@@ -74,7 +74,7 @@
 
         <div class="link-index">
           <div class="button-wrapper">
-            <NuxtLink to="/" class="menu-item">
+            <NuxtLink to="/works" class="menu-item">
               <div>
                 <span style="--index: 0">m</span>
                 <span style="--index: 1">y</span>
@@ -284,12 +284,18 @@ img {
 
 .button-wrapper {
   width: min-content;
-  padding: 1.5rem 2.5rem;
+  padding: 1.8rem 6rem;
   background-color: var(--primary);
   margin: 5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.button-wrapper:hover {
+  padding: 1.8rem 12rem;
+  border-radius: 3rem;
 }
 
 .button-wrapper a span {

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="loading-page">
     <div class="loader">
       <p class="text-loader">loading...</p>
       <span></span>
@@ -12,7 +12,13 @@
 <style scoped>
 @import "~/assets/css/main.css";
 
-.container {
+.loading-page {
+  width: 100vw;
+  height: 100vh;
+  z-index: 16;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: var(--primary);
   display: flex;
   justify-content: right;
@@ -26,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10em;
+  margin: 10rem;
 }
 
 .text-loader {

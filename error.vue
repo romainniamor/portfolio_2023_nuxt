@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="error-page">
     <div class="wrapper"></div>
     <nav>
       <div class="list-items">
@@ -24,7 +24,7 @@
       <h1>{{ error.statusCode }}.</h1>
       <div class="message-wrapper">
         <h2 id="title">error</h2>
-        <p class="message">*{{ error.message }}</p>
+        <p class="message">{{ error.message }}</p>
       </div>
     </div>
   </div>
@@ -80,9 +80,11 @@ onMounted(() => {
 <style scoped>
 @import "~/assets/css/main.css";
 
-.container {
+.error-page {
   background-color: var(--primary);
   color: var(--secondary);
+  width: 100vw;
+  height: 100vh;
 }
 
 .menu-item {
@@ -110,13 +112,16 @@ link {
   flex-direction: column;
   position: relative;
   justify-content: flex-end;
-  padding: 4vw 5vw;
-  flex-grow: 0;
+  padding: 0 15vw;
+  flex-grow: 1;
+
+  height: 100%;
+  width: 100%;
 }
 
 .content h1 {
   position: relative;
-  font-size: 25em;
+  font-size: clamp(13em, 15vw, 24em);
   opacity: 0;
   font-family: "kionaregular";
 }
@@ -124,24 +129,23 @@ link {
 .message-wrapper {
   display: flex;
   flex-direction: column;
-
   background: var(--primary);
   z-index: 2;
   height: 40vh;
 }
 .message-wrapper h2 {
   position: relative;
-  font-size: 3em;
-  line-height: 3rem;
+  font-size: clamp(3rem, 3vw, 3.2rem);
+  line-height: 1;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.1rem;
 
   font-weight: 500;
 }
 
 .message {
-  font-size: 20px;
+  font-size: clamp(1.6rem, 1.8rem, 2.2rem);
   transform: translateY(30px);
   opacity: 0;
 }
